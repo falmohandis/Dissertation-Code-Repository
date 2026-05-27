@@ -1,0 +1,542 @@
+/*:
+
+// Import Excel file: PV Loop Statistics-Raw Data.xlsx
+// → Data Table( "Pre and Post Occlusion" )
+Open(
+	"$DOWNLOADS/!! paper 1 PV loop/Statistics/PV Loop Statistics-Raw Data.xlsx",
+	Worksheets( "Pre and Post Occlusion" ),
+	Use for all sheets( 1 ),
+	Concatenate Worksheets( 0 ),
+	Create Concatenation Column( 0 ),
+	Worksheet Settings(
+		1,
+		Has Column Headers( 1 ),
+		Number of Rows in Headers( 1 ),
+		Headers Start on Row( 1 ),
+		Data Starts on Row( 2 ),
+		Data Starts on Column( 1 ),
+		Data Ends on Row( 0 ),
+		Data Ends on Column( 0 ),
+		Replicated Spanned Rows( 1 ),
+		Replicated Spanned Headers( 0 ),
+		Suppress Hidden Rows( 1 ),
+		Suppress Hidden Columns( 1 ),
+		Suppress Empty Columns( 1 ),
+		Treat as Hierarchy( 0 ),
+		Multiple Series Stack( 0 ),
+		Import Cell Colors( 0 ),
+		Limit Column Detect( 0 ),
+		Column Separator String( "-" )
+	)
+);
+
+
+// Report snapshot: Pre and Post Occlusion - Predictor Screening
+Data Table( "Pre and Post Occlusion" ) <<
+Predictor Screening(
+	Y(
+		:Stroke Work, :Stroke Volume, :Ejection Fraction, :Heart Rate,
+		:Cardiac Output, :Elastance, :Max Pressure, :Min Pressure, :Max Volume,
+		:Min Volume, :ESV, :ESP, :Time
+	),
+	X( :Time ),
+	By( :Group, :"Pre/Post Occlusion"n )
+);
+
+
+// Report snapshot: Pre and Post Occlusion - Predictor Screening
+Data Table( "Pre and Post Occlusion" ) <<
+Predictor Screening(
+	Y(
+		:Stroke Work, :Stroke Volume, :Ejection Fraction, :Heart Rate,
+		:Cardiac Output, :Elastance, :Max Pressure, :Min Pressure, :Max Volume,
+		:Min Volume, :ESV, :ESP
+	),
+	X( :Group, :Time, :weight, :Sex, :"Pre/Post Occlusion"n )
+);
+
+
+// Close Data Table: Pre and Post Occlusion
+Close( "Pre and Post Occlusion" );
+
+
+// Import Excel file: PV Loop Statistics-Raw Data.xlsx
+// → Data Table( "Pre and Post Occlusion" )
+Open(
+	"$DOWNLOADS/!! paper 1 PV loop/Statistics/PV Loop Statistics-Raw Data.xlsx",
+	Worksheets( "Pre and Post Occlusion" ),
+	Use for all sheets( 1 ),
+	Concatenate Worksheets( 0 ),
+	Create Concatenation Column( 0 ),
+	Worksheet Settings(
+		1,
+		Has Column Headers( 1 ),
+		Number of Rows in Headers( 1 ),
+		Headers Start on Row( 1 ),
+		Data Starts on Row( 2 ),
+		Data Starts on Column( 1 ),
+		Data Ends on Row( 0 ),
+		Data Ends on Column( 0 ),
+		Replicated Spanned Rows( 1 ),
+		Replicated Spanned Headers( 0 ),
+		Suppress Hidden Rows( 1 ),
+		Suppress Hidden Columns( 1 ),
+		Suppress Empty Columns( 1 ),
+		Treat as Hierarchy( 0 ),
+		Multiple Series Stack( 0 ),
+		Import Cell Colors( 0 ),
+		Limit Column Detect( 0 ),
+		Column Separator String( "-" )
+	)
+);
+
+
+// Save data table: Pre and Post Occlusion Analyses.jmp
+Data Table( "Pre and Post Occlusion" ) << Save(
+	"$DOWNLOADS/!! paper 1 PV loop/Statistics/Pre and Post Occlusion Analyses.jmp"
+);
+
+Hover Label: Preset library found at /C:/Program Files/SAS/JMPPRO/16/Resources/Builtins/hllib.jsl
+Interactive HTML: Contour plot is not interactive.
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Ejection Fraction )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Ejection Fraction vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+
+// Report snapshot: Pre and Post Occlusion Analyses - Graph Builder 3
+Data Table( "Pre and Post Occlusion Analyses" ) <<
+Graph Builder(
+	Size( 1378, 711 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Ejection Fraction )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Ejection Fraction vs. Time & Group & Occlusion" )}
+		)
+	)
+);
+
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Heart Rate )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Heart Rate vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Ejection Fraction )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Ejection Fraction vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+
+// Report snapshot: Pre and Post Occlusion Analyses - Graph Builder 4
+Data Table( "Pre and Post Occlusion Analyses" ) <<
+Graph Builder(
+	Size( 1378, 711 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Ejection Fraction )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Ejection Fraction vs. Time & Group & Occlusion" )}
+		)
+	)
+);
+
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Ejection Fraction )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Ejection Fraction vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Cardiac Output )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Cardiac Output vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Elastance )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Elastance vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Max Pressure )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Max Pressure vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Min Pressure )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Min Pressure vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Max Volume )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Max Volume vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :Min Volume )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "Min Volume vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :ESV )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "ESV vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :ESP )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "ESP vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :EDV )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "EDV vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
+
+// Report snapshot: Pre and Post Occlusion Analyses - Graph Builder 13
+Data Table( "Pre and Post Occlusion Analyses" ) <<
+Graph Builder(
+	Size( 1426, 714 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :EDV )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "EDV vs. Time & Group & Occlusion" )}
+		)
+	)
+);
+
+//:*/
+Graph Builder(
+	Size( 1409, 742 ),
+	Show Control Panel( 0 ),
+	Variables(
+		X( :Time ),
+		X( :Group, Position( 1 ) ),
+		X( :"Pre/Post Occlusion"n, Position( 1 ) ),
+		Y( :EDP )
+	),
+	Elements(
+		Box Plot( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 12 ) ),
+		Contour( X( 1 ), X( 2 ), X( 3 ), Y, Legend( 13 ) )
+	),
+	SendToReport(
+		Dispatch(
+			{},
+			"graph title",
+			TextEditBox,
+			{Set Text( "EDP vs. Time & Group & Occlusion" )}
+		)
+	)
+)
+/*:
+
+Graph Builder[]
