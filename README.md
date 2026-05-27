@@ -1,8 +1,10 @@
 # Artificial Intelligence and Advanced Modeling Techniques for Optimizing Resuscitation Strategies in Hemorrhagic Shock
 
-This repository contains the data-processing notebooks, statistical workflows, machine learning / deep learning code, and figure-generation files supporting my PhD dissertation research on **hemorrhagic shock**, **REBOA**, **partial REBOA**, cardiovascular physiology, and data-driven trauma decision support.
+This repository contains the code, processed data files, statistical workflows, and figure-generation files that support my PhD dissertation work on **hemorrhagic shock**, **REBOA**, **partial REBOA**, cardiovascular physiology, and data-driven trauma decision support.
 
-The overall goal of this work is to use **physiological signal processing**, **pressure-volume loop analysis**, **machine learning**, and **translational large-animal models** to better understand how hemorrhage severity and aortic occlusion strategies affect hemodynamic recovery, cardiac performance, organ perfusion, and resuscitation needs.
+The main idea behind this project is pretty simple: hemorrhagic shock is physiologically complicated, and the usual clinical measurements do not always capture what is happening underneath. Across the three aims, I used pressure waveforms, pressure-volume loops, machine learning, and large-animal translational models to better understand how hemorrhage severity and aortic occlusion strategy affect cardiac performance, organ perfusion, metabolic recovery, coagulation, and resuscitation needs.
+
+This README is meant to be a navigation guide. It does not replace the papers, dissertation, or analysis notebooks. It is mainly here so that someone opening the repository can understand what each folder is for, where the major files live, and how the different pieces of the project fit together.
 
 ---
 
@@ -11,12 +13,13 @@ The overall goal of this work is to use **physiological signal processing**, **p
 - [Project Overview](#project-overview)
 - [Research Aims](#research-aims)
 - [Repository Status](#repository-status)
-- [Recommended Repository Structure](#recommended-repository-structure)
+- [Repository Map](#repository-map)
 - [How to Navigate the Repository](#how-to-navigate-the-repository)
 - [Aim 1: Hemorrhage Severity Classification](#aim-1-hemorrhage-severity-classification)
 - [Aim 2: Pressure-Volume Loop Analysis During Hemorrhage and REBOA](#aim-2-pressure-volume-loop-analysis-during-hemorrhage-and-reboa)
 - [Aim 3: Graded Hemorrhage and REBOA Strategy Optimization](#aim-3-graded-hemorrhage-and-reboa-strategy-optimization)
 - [Supporting Data Folders](#supporting-data-folders)
+- [Final Documents](#final-documents)
 - [Suggested Setup](#suggested-setup)
 - [Suggested Analysis Order](#suggested-analysis-order)
 - [File Organization Notes](#file-organization-notes)
@@ -28,15 +31,19 @@ The overall goal of this work is to use **physiological signal processing**, **p
 
 ## Project Overview
 
-Hemorrhagic shock is a life-threatening condition caused by blood loss, reduced circulating volume, inadequate tissue perfusion, and eventual cardiovascular decompensation. REBOA, or **Resuscitative Endovascular Balloon Occlusion of the Aorta**, can temporarily stabilize central pressure during non-compressible truncal hemorrhage, but full occlusion can also increase afterload, reduce distal perfusion, and worsen ischemia-reperfusion injury.
+Hemorrhagic shock is a life-threatening condition caused by blood loss, reduced circulating volume, inadequate tissue perfusion, and eventual cardiovascular decompensation. REBOA, or **Resuscitative Endovascular Balloon Occlusion of the Aorta**, can temporarily stabilize central pressure during non-compressible truncal hemorrhage. However, full aortic occlusion can also increase afterload, limit distal perfusion, and contribute to ischemia-reperfusion injury.
 
-This project investigates the problem from three complementary perspectives:
+This project approaches the problem from three related directions:
 
 1. **Real-time severity assessment** using arterial pressure waveforms and AI.
 2. **Cardiac function analysis** using pressure-volume loop processing and beat-to-beat physiology.
-3. **Therapeutic strategy evaluation** comparing no occlusion, partial REBOA, and full REBOA across graded hemorrhage levels.
+3. **Therapeutic strategy evaluation** comparing no occlusion, partial REBOA, and full REBOA across hemorrhage levels.
 
-The repository is intended to help future readers understand where raw data, processed data, notebooks, statistical scripts, and final figures live.
+So, in practical terms, the repository has three major scientific cores:
+
+- **Aim 1** asks whether arterial waveform data can tell us how bad the hemorrhage is.
+- **Aim 2** asks how hemorrhage and REBOA change cardiac function using pressure-volume loop analysis.
+- **Aim 3** asks which REBOA strategy performs best across graded hemorrhage severity.
 
 ---
 
@@ -48,7 +55,7 @@ The repository is intended to help future readers understand where raw data, pro
 
 **Goal:** Develop machine learning and deep learning models that classify hemorrhage severity using arterial pressure waveform data.
 
-This aim uses pressure waveform processing, feature engineering, Savitzky-Golay filtering, decision trees, random forests, genetic-algorithm-assisted feature optimization, and a multi-head 1D convolutional neural network.
+This aim uses waveform processing, feature engineering, Savitzky-Golay filtering, decision trees, random forests, genetic-algorithm-assisted feature optimization, and a multi-head 1D convolutional neural network.
 
 ---
 
@@ -56,9 +63,9 @@ This aim uses pressure waveform processing, feature engineering, Savitzky-Golay 
 
 **Question:** How do hemorrhage and REBOA affect cardiac performance?
 
-**Goal:** Analyze left ventricular pressure-volume relationships during hemorrhage, aortic occlusion, and vena-caval occlusion using Python-based beat-to-beat PV loop processing.
+**Goal:** Analyze left ventricular pressure-volume relationships during hemorrhage, aortic occlusion, and vena-caval occlusion using Python-based PV loop processing and downstream statistical analysis.
 
-This aim is currently planned for repository expansion. The raw Aim 2 Excel files and associated processing / statistics code have not yet been uploaded. A recommended folder structure is included below so the future Aim 2 upload can match the rest of the repository.
+This aim now has the raw data files, PV loop processing notebooks, processed PV loop outputs, statistics files, manuscript figures, reviewer response materials, and supplementary files uploaded into the repository.
 
 ---
 
@@ -68,28 +75,27 @@ This aim is currently planned for repository expansion. The raw Aim 2 Excel file
 
 **Goal:** Evaluate the graded physiological impact of hemorrhage and aortic occlusion modality on cardiac performance, organ perfusion, metabolic state, coagulation, fluids, vasopressors, and recovery.
 
-This aim includes pressure-volume loop outputs, hemodynamic figures, CBC data, TEG data, CG4/CHEM8 data, fluid and pressor processing, statistical scripts, and final figure panels.
+This aim includes pressure-volume loop outputs, hemodynamic figures, CBC data, TEG data, CG4/CHEM8 data, fluid and pressor processing, statistical scripts, and final manuscript-level figure panels.
 
 ---
 
 ## Repository Status
 
-Current high-level status:
-
 | Section | Current Status | Notes |
 |---|---:|---|
-| Root README | Present | Existing README provided the scientific overview and aims. This version expands navigation and reproducibility details. |
-| Aim 1 | Present | Contains PV/flow/pressure notebooks and multi-head CNN inputs/code. |
-| Aim 2 | Planned | Raw Excel files and Aim 2 processing/statistics scripts are not yet uploaded. Placeholder structure is recommended below. |
-| Aim 3 | Present | Contains analysis notebooks, processed Excel files, plotting code, stats folders, and generated figures. |
-| Fluids and Pressors | Present | Contains raw/processed fluid and vasopressor data workflows. |
-| TEG | Present | Contains TEG cleaned/original data, plotting notebook, R stats script, and graph archives. |
+| Root README | Present | This file is the main navigation page for the repository. |
+| Aim 1 | Present | Contains waveform/PV notebooks, random forest and decision tree code, feature-importance outputs, and multi-head CNN inputs/code. |
+| Aim 2 | Present | Contains raw PV loop Excel files, PV loop processing code, non-caval and caval occlusion outputs, ESPVR/EDPVR outputs, statistics files, figures, and reviewer-response materials. |
+| Aim 3 | Present | Contains PV analysis notebooks, processed Excel files, plotting code, stats folders, generated figures, and manuscript-level outputs. |
+| Fluids and Pressors | Present | Contains raw and processed fluid/pressor data workflows, including vasopressin/norepinephrine and urine output processing. |
+| TEG | Present | Contains cleaned/original TEG data, plotting notebook, R statistics script, and graph archives. |
+| Final Documents | Present | Contains dissertation, defense slides, and paper/manuscript documents. |
 
 ---
 
-## Recommended Repository Structure
+## Repository Map
 
-The directory currently contains Aim 1 and Aim 3 materials, along with supporting data folders. After Aim 2 is added, the repository should ideally look like this:
+The repository is not perfectly clean because it contains both final analysis files and older working folders. That is normal for a dissertation research repository. The map below focuses on the folders that matter most for navigation.
 
 ```text
 .
@@ -97,40 +103,27 @@ The directory currently contains Aim 1 and Aim 3 materials, along with supportin
 ├── filepaths.ipynb
 ├── Sandras Experiment Tracker.xlsx
 ├── ERNE QA Log.xlsx
+├── Kristen Project Graphs.zip
+├── MiscOldCodes.zip
 ├── Aim1/
 │   ├── README.md
 │   ├── Main Function Flow and Pressure.ipynb
 │   ├── Main Function PV.ipynb
 │   ├── Cleaned Ensemble Averaged PV Loops.ipynb
-│   └── Multi-head CNN Code/
-│       ├── Multi-head 1D CNN model.ipynb
-│       ├── 1D_CNN_Inputs-BL.xlsx
-│       ├── 1D_CNN_Inputs-Added Groups.xlsx
-│       └── all_dfs.pickle
-├── Aim2/                                  # Planned / not yet uploaded
-│   ├── README.md
-│   ├── raw_data/
-│   │   ├── subject_level_excel_files/
-│   │   └── experiment_tracker.xlsx
-│   ├── processed_data/
-│   │   ├── cleaned_pv_loops.xlsx
-│   │   ├── beat_to_beat_parameters.xlsx
-│   │   ├── ensemble_averaged_pv_loops.xlsx
-│   │   └── load_independent_metrics.xlsx
-│   ├── notebooks/
-│   │   ├── 01_import_labchart_exports.ipynb
-│   │   ├── 02_clean_and_segment_pv_loops.ipynb
-│   │   ├── 03_extract_pv_parameters.ipynb
-│   │   ├── 04_generate_ensemble_averages.ipynb
-│   │   └── 05_plot_aim2_figures.ipynb
-│   ├── stats/
-│   │   ├── aim2_statistics.R
-│   │   ├── model_outputs/
-│   │   └── statistical_tables/
-│   └── figures/
-│       ├── pv_loop_examples/
-│       ├── load_dependent_metrics/
-│       └── load_independent_metrics/
+│   ├── Multi-head CNN Code/
+│   └── Random Forest and Decision Tree Code/
+├── Aim2/
+│   ├── Ensemble Comparison.ipynb
+│   ├── Fahim Paper 1 All Files.zip
+│   ├── ESPVR_Curves.xlsx
+│   ├── PV Loop Analysis Methodology.pptx
+│   ├── paper1_figures.pptx
+│   ├── Raw Data Files/
+│   ├── Codes/
+│   ├── Outputs- Non Caval Occlusion/
+│   ├── Outputs- Caval Occlusion/
+│   ├── Statistics/
+│   └── Reviewer Comments/
 ├── Aim3/
 │   ├── PV Loop Data-ANALYZER.ipynb
 │   ├── Individual ERNE Ensemble Averaged PV Loops.xlsx
@@ -144,31 +137,34 @@ The directory currently contains Aim 1 and Aim 3 materials, along with supportin
 ├── Fluids and Pressors/
 │   ├── Fluid Data/
 │   └── CG4Processing/
-└── TEG/
-    ├── TEG Data Plotting.ipynb
-    ├── TEG Stats_06.02.25.R
-    ├── original_ERNE_TEG.xlsx
-    └── cleaned_ERNE_TEG.xlsx
+├── TEG/
+└── final-documents/
 ```
 
 ---
 
 ## How to Navigate the Repository
 
-Use the repository based on the question you are trying to answer:
+Use the repository based on the question you are trying to answer.
 
 | Question | Start Here | Main Files / Folders |
 |---|---|---|
 | What is the overall dissertation project? | Root `README.md` | Project overview, aims, repository map |
 | How were pressure and flow waveforms processed? | `Aim1/` | `Main Function Flow and Pressure.ipynb`, `Main Function PV.ipynb` |
-| How was the multi-head 1D CNN trained? | `Aim1/Multi-head CNN Code/` | `Multi-head 1D CNN model.ipynb`, CNN input Excel files, `all_dfs.pickle` |
+| How were the machine learning models built? | `Aim1/Random Forest and Decision Tree Code/` | RF, decision tree, data generator, feature importance notebooks |
+| How was the multi-head 1D CNN trained? | `Aim1/Multi-head CNN Code/` | CNN notebook, input Excel files, `all_dfs.pickle` |
+| Where are Aim 2 raw PV files? | `Aim2/Raw Data Files/` | Subject-level Excel files such as `A 1822.xlsx`, `B 1809.xlsx`, `E 1844.xlsx` |
+| Where is the Aim 2 processing code? | `Aim2/Codes/` | `PV Loop Code with ESPVR.ipynb`, `PV Loop Code without ESPVR.ipynb` |
+| Where are Aim 2 processed outputs? | `Aim2/Outputs- Non Caval Occlusion/` and `Aim2/Outputs- Caval Occlusion/` | PV loop output Excel files organized by time point |
+| Where are Aim 2 statistics files? | `Aim2/Statistics/` | Raw stats tables, JMP files, Stata `.do` scripts, JSL script, exported plots |
+| Where are Aim 2 reviewer/manuscript files? | `Aim2/Reviewer Comments/` | Reviewer documents, revised figures, supplementary files, STATS PDFs |
 | How were Aim 3 PV loops analyzed? | `Aim3/` | `PV Loop Data-ANALYZER.ipynb`, ensemble averaged PV loop Excel files |
 | Where are Aim 3 final paper figures? | `Aim3/Paper3-RawFigures/` | Final figure PNGs for CO, ESV, PV loops, carotid flow, renal flow, lactate, creatinine, base excess, fluids/drugs |
 | Where are Aim 3 plotting outputs? | `Aim3/Paper Plotting/` | Hemodynamics, hemorrhage comparison, pressure-volume, TEG, CBC, CG4/CHEM8 figures |
-| Where are statistics scripts? | `Aim3/Stats/Step 3 Actual Stats/` | R scripts for PV, TEG, CG4/CHEM8, fluids/drugs |
+| Where are Aim 3 statistics scripts? | `Aim3/Stats/Step 3 Actual Stats/` | R scripts for PV, TEG, CG4/CHEM8, fluids/drugs |
 | Where are fluid and vasopressor workflows? | `Fluids and Pressors/Fluid Data/` and `Aim3/Stats/Step 1 Fluids and Drugs Sandbox/` | Raw data, processed outputs, plotting notebooks |
 | Where is coagulation / TEG analysis? | `TEG/` and `Aim3/Paper Plotting/TEG/` | TEG plotting notebook, cleaned data, R stats script, generated TEG panels |
-| Where will Aim 2 go? | Future `Aim2/` folder | Raw Excel files, PV processing code, stats code, and paper-related outputs |
+| Where are final dissertation/paper files? | `final-documents/` | Dissertation, defense slides, manuscript documents, final figure slides |
 
 ---
 
@@ -176,7 +172,7 @@ Use the repository based on the question you are trying to answer:
 
 ### Scientific Purpose
 
-Aim 1 develops AI-based models to classify hemorrhage severity using arterial pressure waveform data. The motivation is that traditional vital signs, such as MAP and heart rate, are often insufficient to capture patient-specific compensatory physiology during hemorrhage.
+Aim 1 develops AI-based models to classify hemorrhage severity using arterial pressure waveform data. The motivation is that traditional vital signs, such as MAP and heart rate, are often not enough to capture patient-specific compensatory physiology during hemorrhage.
 
 ### Experimental Context
 
@@ -205,12 +201,35 @@ Aim1/
 ├── Main Function Flow and Pressure.ipynb
 ├── Main Function PV.ipynb
 ├── Cleaned Ensemble Averaged PV Loops.ipynb
-└── Multi-head CNN Code/
-    ├── Multi-head 1D CNN model.ipynb
-    ├── 1D_CNN_Inputs-BL.xlsx
-    ├── 1D_CNN_Inputs-Added Groups.xlsx
-    └── all_dfs.pickle
+├── Multi-head CNN Code/
+│   ├── Multi-head 1D CNN model.ipynb
+│   ├── 1D_CNN_Inputs-BL.xlsx
+│   ├── 1D_CNN_Inputs-Added Groups.xlsx
+│   └── all_dfs.pickle
+└── Random Forest and Decision Tree Code/
+    ├── Decision Tree.ipynb
+    ├── RF Code.ipynb
+    ├── RF Data Generator.ipynb
+    ├── Random Forest Input.xlsx
+    ├── Enhanced Random Forest Input.xlsx
+    ├── NonEnesmble Waveform Total Output.xlsx
+    └── Paper 2 Feature Importance Stuff/
 ```
+
+### Random Forest and Decision Tree Folder
+
+`Aim1/Random Forest and Decision Tree Code/` contains the classical machine learning workflow for Aim 1.
+
+Main files include:
+
+- `Decision Tree.ipynb`
+- `RF Code.ipynb`
+- `RF Data Generator.ipynb`
+- `Random Forest Input.xlsx`
+- `Enhanced Random Forest Input.xlsx`
+- `NonEnesmble Waveform Total Output.xlsx`
+
+The nested folder `Paper 2 Feature Importance Stuff/` contains notebooks and outputs used to study feature importance across models. It also includes tree visualization outputs in `Tree Branches/`.
 
 ### Expected Outputs
 
@@ -224,139 +243,316 @@ Aim1/
 
 ### Key Interpretation
 
-Aim 1 supports the idea that higher-dimensional waveform features provide better hemorrhage severity classification than traditional vital sign thresholds alone. The final defense materials emphasized that multi-domain features and AI models improved classification, especially for intermediate hemorrhage classes.
+Aim 1 supports the idea that higher-dimensional waveform features provide better hemorrhage severity classification than traditional vital sign thresholds alone. The defense materials emphasized that multi-domain features and AI models improved classification, especially for intermediate hemorrhage classes.
 
 ---
 
 ## Aim 2: Pressure-Volume Loop Analysis During Hemorrhage and REBOA
 
-> **Current status:** Aim 2 files are not yet uploaded. This section is written as a planned structure and documentation template to match when the raw Excel files, code, and statistics scripts are added.
-
 ### Scientific Purpose
 
-Aim 2 investigates how hemorrhage and aortic occlusion alter cardiac performance using left ventricular pressure-volume loop analysis. This aim focuses on both load-dependent and load-independent cardiovascular parameters.
+Aim 2 investigates how hemorrhage and aortic occlusion change cardiac performance using left ventricular pressure-volume loop analysis. This aim focuses on both the standard load-dependent PV loop parameters and the load-independent relationships that come from caval occlusion.
+
+This is the aim that is most directly focused on the heart itself. The big question is not only whether REBOA restores pressure, but what that restoration does to ventricular function, afterload, preload, contractility, and pressure-volume relationships.
 
 ### Experimental Context
 
-Based on the defense slides, Aim 2 used a Yorkshire-cross swine model with controlled hemorrhage and REBOA intervention. The Aim 2 model included:
+Aim 2 uses a swine hemorrhage and REBOA model with left ventricular pressure-volume catheter data. Based on the dissertation materials, this aim included:
 
-- Controlled hemorrhage of approximately 25% blood volume over 30 minutes
+- Controlled hemorrhage of approximately 25% blood volume
 - Full REBOA, partial REBOA / EVAC, and no occlusion groups
 - Left ventricular pressure-volume catheter data
-- Vena-caval occlusion periods for load-independent analysis
-- Pre-IVCO, during-IVCO, and post-IVCO extraction windows
+- Vena-caval occlusion periods for load-independent cardiac assessment
+- Non-caval segments for standard PV loop parameter extraction
+- Caval occlusion segments for ESPVR and EDPVR-related analysis
 
-### Planned Aim 2 Folder Structure
-
-When Aim 2 data are uploaded, use a structure like this:
+### Aim 2 Folder Overview
 
 ```text
 Aim2/
-├── README.md
-├── raw_data/
-│   ├── subject_level_excel_files/
-│   │   ├── Subject_01_raw.xlsx
-│   │   ├── Subject_02_raw.xlsx
-│   │   └── ...
-│   └── experiment_tracker.xlsx
-├── processed_data/
-│   ├── cleaned_pv_loops.xlsx
-│   ├── beat_to_beat_parameters.xlsx
-│   ├── ensemble_averaged_pv_loops.xlsx
-│   ├── espvr_edpvr_outputs.xlsx
-│   └── statistical_input_table.xlsx
-├── notebooks/
-│   ├── 01_import_labchart_exports.ipynb
-│   ├── 02_clean_and_segment_pv_loops.ipynb
-│   ├── 03_extract_pv_parameters.ipynb
-│   ├── 04_generate_ensemble_averages.ipynb
-│   └── 05_plot_aim2_figures.ipynb
-├── stats/
-│   ├── aim2_statistics.R
-│   ├── model_outputs/
-│   └── statistical_tables/
-└── figures/
-    ├── pv_loop_examples/
-    ├── load_dependent_metrics/
-    ├── load_independent_metrics/
-    └── manuscript_figures/
+├── Ensemble Comparison.ipynb
+├── Fahim Paper 1 All Files.zip
+├── ESPVR_Curves.xlsx
+├── PV Loop Analysis Methodology.pptx
+├── paper1_figures.pptx
+├── Raw Data Files/
+├── Codes/
+├── Outputs- Non Caval Occlusion/
+├── Outputs- Caval Occlusion/
+├── Statistics/
+└── Reviewer Comments/
 ```
 
-### Planned Aim 2 Workflow
+### Aim 2 Top-Level Files
 
-The Aim 2 workflow should be documented in the Aim 2 folder using the following order:
+These are the main top-level files in the Aim 2 folder:
 
-1. **Raw data import**
-   - Load Excel exports from LabChart or equivalent acquisition software.
-   - Import synchronized pressure and volume signals.
-   - Preserve subject ID, time point, treatment group, and IVCO window metadata.
+- `Aim2/Ensemble Comparison.ipynb`
+- `Aim2/Fahim Paper 1 All Files.zip`
+- `Aim2/ESPVR_Curves.xlsx`
+- `Aim2/PV Loop Analysis Methodology.pptx`
+- `Aim2/paper1_figures.pptx`
 
-2. **PV loop reconstruction**
-   - Combine one-dimensional pressure and volume signals into two-dimensional PV loops.
-   - Confirm that pressure and volume signals are aligned.
-   - Remove corrupted or incomplete segments.
+How to think about these files:
 
-3. **Beat separation**
-   - Detect individual PV loops.
-   - Segment continuous PV data into beat-to-beat loops.
-   - Apply cleaning rules for physiologically implausible beats.
+- `Ensemble Comparison.ipynb` appears to be the main notebook for comparing processed PV loop outputs across animals, time points, or groups.
+- `Fahim Paper 1 All Files.zip` is likely the compressed archive of the full Aim 2 paper-related working folder.
+- `ESPVR_Curves.xlsx` stores end-systolic pressure-volume relationship outputs or curve data.
+- `PV Loop Analysis Methodology.pptx` documents the processing approach visually.
+- `paper1_figures.pptx` contains Aim 2 / Paper 1 figure panels.
 
-4. **Parameter extraction**
-   - Extract load-dependent parameters such as:
-     - End-systolic pressure
-     - End-diastolic pressure
-     - End-systolic volume
-     - End-diastolic volume
-     - Stroke volume
-     - Stroke work
-     - Ejection fraction
-     - Cardiac output
-     - Arterial elastance
-   - Extract load-independent relationships such as:
-     - ESPVR
-     - EDPVR
+### Aim 2 Raw Data Files
 
-5. **Ensemble averaging**
-   - Generate subject-level ensemble averaged PV loops.
-   - Generate group-level ensemble averaged PV loops.
-   - Compare baseline, hemorrhage, intervention, and recovery time points.
+Raw Aim 2 Excel files are stored here:
 
-6. **Statistics**
-   - Prepare cleaned statistical input tables.
-   - Run treatment-by-time comparisons.
-   - Include repeated-measures or mixed-effects modeling when appropriate.
-   - Export model outputs, p-values, estimated marginal means, and manuscript-ready tables.
+```text
+Aim2/Raw Data Files/
+```
 
-7. **Figures**
-   - Generate PV loop panels.
-   - Generate load-dependent parameter plots.
-   - Generate ESPVR / EDPVR summaries.
-   - Export publication-ready figures.
+Current raw files:
 
-### Planned Aim 2 README Checklist
+- `Aim2/Raw Data Files/B 1832.xlsx`
+- `Aim2/Raw Data Files/B 1809.xlsx`
+- `Aim2/Raw Data Files/E 1844.xlsx`
+- `Aim2/Raw Data Files/E 1848.xlsx`
+- `Aim2/Raw Data Files/E 1824.xlsx`
+- `Aim2/Raw Data Files/A 1822.xlsx`
+- `Aim2/Raw Data Files/A 1839.xlsx`
+- `Aim2/Raw Data Files/B 1827.xlsx`
+- `Aim2/Raw Data Files/A 1825.xlsx`
 
-When Aim 2 is uploaded, the local `Aim2/README.md` should include:
+These look like subject-level raw Excel files. The file names use letter-number animal identifiers, such as `A 1822.xlsx`, `B 1809.xlsx`, and `E 1844.xlsx`.
 
-- Dataset source and experimental design
-- Subject count and treatment groups
-- Time points analyzed
-- Raw file naming convention
-- Exact notebooks/scripts to run
-- Required input files for each notebook
-- Output files generated by each notebook
-- Statistical tests used
-- Figure panels produced
-- Notes on excluded animals, excluded beats, or failed IVCO segments
+### Aim 2 Processing Code
+
+The main PV loop processing notebooks are stored here:
+
+```text
+Aim2/Codes/
+```
+
+Current code files:
+
+- `Aim2/Codes/PV Loop Code with ESPVR.ipynb`
+- `Aim2/Codes/PV Loop Code without ESPVR.ipynb`
+
+The two main notebooks separate the processing workflow into:
+
+1. **PV loop processing with ESPVR**  
+   This is used when caval occlusion is included and load-independent relationships are being calculated.
+
+2. **PV loop processing without ESPVR**  
+   This is used for standard non-caval occlusion PV loop processing, where the main goal is extracting beat-to-beat or time-window PV loop parameters.
+
+### Aim 2 Non-Caval Occlusion Outputs
+
+Processed non-caval outputs are stored here:
+
+```text
+Aim2/Outputs- Non Caval Occlusion/
+```
+
+This folder contains PV loop output Excel files organized by time point. The current time-point folders are:
+
+```text
+T0.0/
+T0.2/
+T30.0/
+T30.2/
+T74.0/
+T74.2/
+```
+
+These files generally follow this naming pattern:
+
+```text
+PVLoop_Output_<Animal ID>.xlsx_<Time Point>.xlsx
+```
+
+Example file names include:
+
+```text
+PVLoop_Output_A 1822.xlsx_T0.0.xlsx
+PVLoop_Output_B 1809.xlsx_T30.0.xlsx
+PVLoop_Output_E 1848.xlsx_T74.2.xlsx
+```
+
+In plain language, this folder is where I would look for the standard PV loop parameter outputs that do **not** require caval occlusion / ESPVR processing.
+
+### Aim 2 Caval Occlusion Outputs
+
+Processed caval occlusion outputs are stored here:
+
+```text
+Aim2/Outputs- Caval Occlusion/
+```
+
+The current time-point folders are:
+
+```text
+T0.1/
+T30.1/
+T74.1/
+```
+
+This folder contains three major output types:
+
+```text
+PVLoop_Output_<Animal ID>.xlsx_<Time Point>.xlsx
+PVLoop_ESPVR_<Animal ID>.xlsx_<Time Point>.xlsx
+PVLoop_EDPVR_<Animal ID>.xlsx_<Time Point>.xlsx
+```
+
+How to read these:
+
+- `PVLoop_Output_*` = processed PV loop parameter outputs.
+- `PVLoop_ESPVR_*` = end-systolic pressure-volume relationship outputs.
+- `PVLoop_EDPVR_*` = end-diastolic pressure-volume relationship outputs.
+
+This is the folder that matters most for load-independent analysis, because caval occlusion allows preload to be varied so that ESPVR and EDPVR relationships can be estimated.
+
+### Aim 2 Statistics Folder
+
+Aim 2 statistics files are stored here:
+
+```text
+Aim2/Statistics/
+```
+
+Current statistics-related files:
+
+- `Aim2/Statistics/Raw Data Table.xlsx`
+- `Aim2/Statistics/Pre and Post Occlusion Analyses - Predictor Screening.jpg`
+- `Aim2/Statistics/Expanded_Analysis_Framework.xlsx`
+- `Aim2/Statistics/JMP_raw_work.txt`
+- `Aim2/Statistics/Pre and Post Occlusion Analyses.jmp`
+- `Aim2/Statistics/Cumulative Sheet Analyses - Predictor Screening.png`
+- `Aim2/Statistics/JMP_Pre_and_Post.txt`
+- `Aim2/Statistics/Cumulative Sheet Analyses -ESV.png`
+- `Aim2/Statistics/Session Script.jsl`
+- `Aim2/Statistics/Fahim_round_1_stata.do`
+- `Aim2/Statistics/PV Loop Statistics-Raw Data.xlsx`
+- `Aim2/Statistics/Pre_and_Post_Occlusion_Analysis.do`
+- `Aim2/Statistics/Cumulative_Occlusion_Analysis.do`
+- `Aim2/Statistics/Sandbox.do`
+- `Aim2/Statistics/Cumulative Sheet Analyses -SW.png`
+- `Aim2/Statistics/Cumulative Sheet Analyses-2.jmp`
+- `Aim2/Statistics/JMP Complete.txt`
+- `Aim2/Statistics/Pre and Post Occlusion Analyses - Graph Builder.png`
+- `Aim2/Statistics/Cumulative Sheet Analyses.jmp`
+
+This folder contains a mix of raw statistical input tables, JMP analyses, Stata scripts, exported JMP text, and diagnostic/graph builder outputs.
+
+Important files include:
+
+- `Raw Data Table.xlsx`
+- `PV Loop Statistics-Raw Data.xlsx`
+- `Expanded_Analysis_Framework.xlsx`
+- `Pre_and_Post_Occlusion_Analysis.do`
+- `Cumulative_Occlusion_Analysis.do`
+- `Fahim_round_1_stata.do`
+- `Session Script.jsl`
+- `Pre and Post Occlusion Analyses.jmp`
+- `Cumulative Sheet Analyses.jmp`
+
+A reasonable way to read this folder is:
+
+1. Use the Excel files as the statistical input / cleaned summary tables.
+2. Use the `.do` files for Stata-based analyses.
+3. Use the `.jmp` and `.jsl` files for JMP analyses and scripted JMP workflows.
+4. Use the `.txt`, `.jpg`, and `.png` files as exported analysis logs or figure outputs from the statistics process.
+
+### Aim 2 Reviewer Comments and Manuscript Materials
+
+Reviewer and revision-related files are stored here:
+
+```text
+Aim2/Reviewer Comments/
+```
+
+Main reviewer/manuscript files:
+
+- `Aim2/Reviewer Comments/Finalized Supplementary File_edit.docx`
+- `Aim2/Reviewer Comments/Frontiers-Reviewer3-comments.docx`
+- `Aim2/Reviewer Comments/Supplementary_File_A.docx`
+- `Aim2/Reviewer Comments/Frontiers-Manuscript-RevisedFigures-072723.pptx`
+- `Aim2/Reviewer Comments/Supplementary_File_B.docx`
+- `Aim2/Reviewer Comments/paper1_figures-edited.pptx`
+- `Aim2/Reviewer Comments/Frontiers-Reviewer2-comments.docx`
+
+Figures are stored here:
+
+```text
+Aim2/Reviewer Comments/Figures/
+```
+
+Current figure files:
+
+- `Aim2/Reviewer Comments/Figures/Figure3.jpg`
+- `Aim2/Reviewer Comments/Figures/Figure2.jpg`
+- `Aim2/Reviewer Comments/Figures/Figure1.jpg`
+- `Aim2/Reviewer Comments/Figures/Figure5.jpg`
+- `Aim2/Reviewer Comments/Figures/Figure4.jpg`
+- `Aim2/Reviewer Comments/Figures/Figure6.jpg`
+- `Aim2/Reviewer Comments/Figures/Figure7.jpg`
+
+Reviewer-related statistics PDFs are stored here:
+
+```text
+Aim2/Reviewer Comments/STATS/
+```
+
+Current STATS files:
+
+- `Aim2/Reviewer Comments/STATS/EaEJF.pdf`
+- `Aim2/Reviewer Comments/STATS/ESPVR.pdf`
+- `Aim2/Reviewer Comments/STATS/F-Test3.pdf`
+- `Aim2/Reviewer Comments/STATS/F-Test2.pdf`
+- `Aim2/Reviewer Comments/STATS/HRCO.pdf`
+- `Aim2/Reviewer Comments/STATS/End Diastole.pdf`
+- `Aim2/Reviewer Comments/STATS/F-Test.pdf`
+- `Aim2/Reviewer Comments/STATS/PV Loop Statistics-Raw Data.xlsx`
+- `Aim2/Reviewer Comments/STATS/End Systole.pdf`
+- `Aim2/Reviewer Comments/STATS/StrokeStuff.pdf`
+
+This section is useful if someone is trying to understand how the final Aim 2 manuscript changed during review, or if they want to find the figure and statistics files that supported the revised Frontiers submission.
+
+### Aim 2 Workflow
+
+A practical Aim 2 workflow looks like this:
+
+1. **Start with raw Excel files**  
+   Use `Aim2/Raw Data Files/` as the original subject-level PV loop data source.
+
+2. **Run the PV loop processing notebooks**  
+   Use `Aim2/Codes/PV Loop Code without ESPVR.ipynb` for standard PV loop outputs.  
+   Use `Aim2/Codes/PV Loop Code with ESPVR.ipynb` when caval occlusion and ESPVR/EDPVR are needed.
+
+3. **Check the output folders**  
+   Use `Outputs- Non Caval Occlusion/` for standard PV loop outputs.  
+   Use `Outputs- Caval Occlusion/` for PV loop outputs plus ESPVR and EDPVR files.
+
+4. **Use ensemble comparison / compiled files**  
+   Use `Ensemble Comparison.ipynb` and `ESPVR_Curves.xlsx` for downstream summaries and comparisons.
+
+5. **Run statistics**  
+   Use the files in `Aim2/Statistics/`, especially the raw statistics tables and `.do` scripts.
+
+6. **Find manuscript and reviewer outputs**  
+   Use `paper1_figures.pptx`, `PV Loop Analysis Methodology.pptx`, and `Reviewer Comments/` for final presentation, figure, and review-related material.
 
 ### Expected Aim 2 Outputs
 
-- Cleaned PV loop files
-- Beat-to-beat parameter tables
-- Ensemble averaged PV loop tables
-- ESPVR / EDPVR summaries
+- Cleaned PV loop output files
+- Non-caval PV loop parameter summaries
+- Caval occlusion PV loop outputs
+- ESPVR output files
+- EDPVR output files
+- Ensemble comparison outputs
 - Statistical input tables
-- Model output tables
-- Manuscript-ready plots
+- JMP / Stata analysis files
+- Manuscript-ready figures
+- Reviewer-response figures and supplementary files
 
 ---
 
@@ -365,6 +561,8 @@ When Aim 2 is uploaded, the local `Aim2/README.md` should include:
 ### Scientific Purpose
 
 Aim 3 evaluates how hemorrhage severity and REBOA strategy affect hemodynamic recovery, cardiac performance, distal perfusion, metabolic injury, coagulation, and resuscitation burden.
+
+This aim is broader than Aim 2. Aim 2 is focused heavily on cardiac mechanics and PV relationships. Aim 3 uses the bigger graded hemorrhage dataset and asks how hemorrhage level and occlusion strategy affect the whole physiological response.
 
 ### Experimental Context
 
@@ -380,7 +578,7 @@ Within each hemorrhage level, animals were assigned to:
 - Partial REBOA
 - Full REBOA
 
-The defense slides describe this aim as a translational porcine model with automated critical care monitoring and continuous hemodynamic / perfusion data. The main conclusions were that increasing hemorrhage reduced cardiac performance and perfusion, full REBOA caused stronger ischemia-reperfusion injury, and partial REBOA better preserved renal perfusion and reduced fluid / pressor needs.
+The main idea is to compare whether partial REBOA can preserve hemodynamics and organ perfusion while avoiding some of the injury patterns associated with full occlusion.
 
 ### Main Aim 3 Files
 
@@ -418,7 +616,7 @@ Aim3/Paper Plotting/PV_Fractional_Increase_T0-1.xlsx
 Aim3/Paper Plotting/Fractional_Increase_0.xlsx
 ```
 
-These files appear to store processed PV loop summaries, fractional change outputs, or intermediate tables used for downstream plotting and statistical analysis.
+These files store processed PV loop summaries, fractional change outputs, or intermediate tables used for downstream plotting and statistical analysis.
 
 ### Aim 3 Final Raw Figure Folder
 
@@ -482,7 +680,7 @@ Files are generally named using this pattern:
 Probe_<Probe Name>_<Summary Statistic>.png
 ```
 
-Examples:
+Example files:
 
 ```text
 Probe_Renal Flow_Avg.png
@@ -565,11 +763,28 @@ TEG_LY30_Panel.png
 
 #### CG4 and CHEM8
 
-`Aim3/Paper Plotting/CG4 and CHEM8 Data.xlsx`
-
-`Aim3/Paper Plotting/CG4 and CHEM8 Plots/`
+```text
+Aim3/Paper Plotting/CG4 and CHEM8 Data.xlsx
+Aim3/Paper Plotting/CG4 and CHEM8 Plots/
+```
 
 Contains blood chemistry, metabolic, renal, acid-base, and electrolyte related outputs such as lactate, base excess, creatinine, BUN, potassium, chloride, anion gap, pH, and related values.
+
+#### Targetted
+
+`Aim3/Paper Plotting/Targetted/`
+
+This folder contains a more focused plotting workflow and targeted outputs, including:
+
+```text
+Plotting-Targetted.ipynb
+Processed_Data_with_Vasopressin.xlsx
+Hemorrhage_Occlusion_3x3_grid.png
+Hemodynamics/Avg_multiplot.png
+Pressure-Volume/Multiterm_Panel.png
+```
+
+This appears to be the place where specific targeted plots were created after the broader plotting workflow was already developed.
 
 ### Aim 3 Statistics Folder
 
@@ -586,40 +801,81 @@ Aim3/Stats/
 
 #### Step 1: Fluids and Drugs Sandbox
 
-This folder contains the main fluid and pressor processing sandbox, including:
+This folder contains the main fluid and vasopressor processing sandbox.
 
-- raw fluid / pressor data
-- processed fluid outputs
-- vasopressin and norepinephrine files
-- plotting notebooks
-- experiment tracker
-- archived / graveyard files
+Important files:
+
+```text
+Pressor and Fluids Data Processing.ipynb
+Process Data.ipynb
+Plotting.ipynb
+Processed_Data_Output.xlsx
+Processed_Data_with_Vasopressin.xlsx
+Vasopressin and Norepi.xlsx
+Processed Data.xlsx
+Processed Data In Order.xlsx
+Urine Output.xlsx
+Experiment Tracker.xlsx
+MacKenzie Raw Data/
+```
+
+The `MacKenzie Raw Data/` folder contains subject-level raw fluid/pressor files.
 
 #### Step 2: File Cleaning
 
-Use this folder for intermediate file cleaning steps before statistical analysis.
+This folder contains cleaned files generated before statistics.
 
-#### Step 3: Actual Stats
-
-This folder appears to contain the main R statistical scripts and cleaned statistical inputs:
+Important files:
 
 ```text
-PV_02.18.26.R
-TEG Stats_08.27.25.R
-Fluids_Drugs_08.27.25.R
-CG4_CHEM8_Stats_08.13.25.R
-CG4 and CHEM8 Data.xlsx
-Experiment Tracker.xlsx
-Fractional_Increase_0.xlsx
-ERNE_TEG_Cleaned.xlsx
+Append Fluid and Drug Data.ipynb
+Processed_Data_Output.xlsx
+cleanedPV_Fractional_Increase_T0-1.xlsx
+cleanedFractional_Increase_0.xlsx
 README.md
 ```
 
-Use this folder when reproducing the statistical analysis.
+#### Step 3: Actual Stats
+
+This is the main Aim 3 statistics folder.
+
+Important files:
+
+```text
+PV_02.18.26.R
+CHEM8_CG4_02.19.26.R
+Flow_Pressure_06.13.25.R
+TEG Stats_08.27.25.R
+Fluids_Drugs_08.27.25.R
+PV_Fractional_Increase_T0-1.xlsx
+Fractional_Increase_0.xlsx
+CG4 and CHEM8 Data.xlsx
+ERNE_TEG_Cleaned.xlsx
+Experiment Tracker.xlsx
+README.md
+```
+
+This is the folder I would use first when trying to reproduce the final Aim 3 statistical outputs.
 
 #### Step 4: Tables and Stats
 
-Use this folder for final statistical tables, exported summaries, formatted outputs, and manuscript-supporting tables.
+This folder contains manuscript/statistical summary tables and table-specific significance tests.
+
+Important files:
+
+```text
+PV.xlsx
+Flow.xlsx
+TEG.xlsx
+Carotid.xlsx
+Experiment Tracker.xlsx
+Working manuscript _Aim 3.docx
+Working manuscript _Aim 3 06.24.25.docx
+Working manuscript _Aim 3 06.30.25.docx
+Table Tests of Significance/
+```
+
+The nested `Table Tests of Significance/` folder contains R scripts and Excel files for table-specific tests, including PV, MAP, renal, carotid, and fluids analyses.
 
 ---
 
@@ -627,267 +883,218 @@ Use this folder for final statistical tables, exported summaries, formatted outp
 
 ### Fluids and Pressors
 
+The `Fluids and Pressors/` folder contains a broader standalone workflow for fluid, urine output, vasopressor, and CG4 processing.
+
 ```text
 Fluids and Pressors/
 ├── Fluid Data/
 └── CG4Processing/
 ```
 
-This folder contains standalone or earlier-stage processing for fluid, vasopressor, hetastarch, urine output, waveform-derived outputs, and CG4 processing.
+#### Fluid Data
 
-Important files include:
+`Fluids and Pressors/Fluid Data/` includes raw data, cleaned data, processed output tables, and plotting notebooks.
+
+Important files:
 
 ```text
-Fluids and Pressors/Fluid Data/Pressor and Fluids Data Processing.ipynb
-Fluids and Pressors/Fluid Data/CLEANED Pressor and Fluids Data Processing.ipynb
-Fluids and Pressors/Fluid Data/Processed Data.xlsx
-Fluids and Pressors/Fluid Data/Processed_Data_Output.xlsx
-Fluids and Pressors/Fluid Data/Vasopressin and Norepi.xlsx
-Fluids and Pressors/Fluid Data/Urine Output.xlsx
-Fluids and Pressors/Fluid Data/Raw Data/
+Pressor and Fluids Data Processing.ipynb
+CLEANED Pressor and Fluids Data Processing.ipynb
+Process Data.ipynb
+Plotting.ipynb
+oldPlotting.ipynb
+Processed_Data_Output.xlsx
+Processed_Data_with_Vasopressin.xlsx
+Processed_Data_with_Vasopressin_and_Division.xlsx
+Vasopressin and Norepi.xlsx
+Urine Output.xlsx
+Hetastarch Raw.xlsx
+Processed_Hetastarch_Data.xlsx
+Raw_Treatment_Data_By_Time.xlsx
+Raw_Data_by_Treatment.xlsx
+Raw_Values_at_Time240_by_Parameter.xlsx
+Raw_Values_by_Parameter_and_Time.xlsx
+Raw Data/
 ```
 
-The `CG4Processing/` folder contains CG4 raw and processed zip files, renaming code, and clustering notebooks.
+The `Raw Data/` folder contains the subject-level raw Excel files and templates used to build the processed fluid/pressor tables.
+
+#### CG4 Processing
+
+`Fluids and Pressors/CG4Processing/` contains CG4-related processing and unsupervised learning experiments.
+
+Important files:
+
+```text
+K-Means Clustering- Unsupervised Learning Code.ipynb
+sandboxK-Means Clustering.ipynb
+Code to Rename Excels.ipynb
+Raw CG4.zip
+Processed CG4.zip
+```
 
 ### TEG
 
+The standalone `TEG/` folder contains coagulation-related data and workflows.
+
+Important files:
+
 ```text
-TEG/
-├── TEG Data Plotting.ipynb
-├── TEG Stats_06.02.25.R
-├── original_ERNE_TEG.xlsx
-├── cleaned_ERNE_TEG.xlsx
-├── SEM Graphs.zip
-├── graph_archive.zip
-└── old_code_archives.zip
+TEG/TEG Data Plotting.ipynb
+TEG/TEG Stats_06.02.25.R
+TEG/original_ERNE_TEG.xlsx
+TEG/cleaned_ERNE_TEG.xlsx
+TEG/graph_archive.zip
+TEG/SEM Graphs.zip
+TEG/old_code_archives.zip
 ```
 
-This folder contains thromboelastography processing and statistical analysis.
+This folder is useful for reproducing or checking the TEG analysis outside the Aim 3 paper plotting folder.
+
+---
+
+## Final Documents
+
+The `final-documents/` folder contains the major final writing and presentation files.
+
+```text
+final-documents/
+├── Dissertation- Fahim Mobin.docx
+├── Dissertation- Fahim Mobin.pdf
+├── PhD Defense Final.pptx
+├── Paper2.docx
+├── Paper3.docx
+└── Paper3_Final Figures.pptx
+```
+
+These files are useful for understanding how the code and data outputs were ultimately presented in dissertation and manuscript form.
 
 ---
 
 ## Suggested Setup
 
-This repository includes Jupyter notebooks, Excel files, image outputs, and R scripts. A mixed Python/R environment is recommended.
+This repository contains a mix of Python notebooks, R scripts, Stata scripts, JMP files, Excel workbooks, PowerPoint files, and Word documents.
 
-### Python Environment
+A basic working setup should include:
 
-Create a Python environment:
+- Python 3.x
+- Jupyter Notebook or JupyterLab
+- pandas
+- numpy
+- scipy
+- matplotlib
+- seaborn
+- scikit-learn
+- TensorFlow / Keras, if running the CNN code
+- R and RStudio, if running the Aim 3 R statistics scripts
+- Stata, if running the Aim 2 `.do` files
+- JMP, if opening the `.jmp` and `.jsl` files
+- Microsoft Excel for checking raw and processed workbook outputs
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-```
-
-Install commonly needed packages:
-
-```bash
-pip install numpy pandas scipy scikit-learn matplotlib seaborn openpyxl jupyter notebook ipykernel
-```
-
-For deep learning workflows, install either TensorFlow or PyTorch depending on the notebook requirements. For example:
-
-```bash
-pip install tensorflow
-```
-
-or:
-
-```bash
-pip install torch torchvision torchaudio
-```
-
-Register the environment as a Jupyter kernel:
-
-```bash
-python -m ipykernel install --user --name hemorrhage-ai --display-name "Hemorrhage AI"
-```
-
-### R Environment
-
-Install R and RStudio or use VS Code with the R extension. Commonly useful packages may include:
-
-```r
-install.packages(c(
-  "tidyverse",
-  "readxl",
-  "openxlsx",
-  "lme4",
-  "lmerTest",
-  "emmeans",
-  "ggplot2",
-  "ggpubr"
-))
-```
-
-Specific scripts may require additional packages. Install missing packages as needed when running the R scripts.
+Because this was developed across multiple phases of a dissertation, some notebooks may have local file paths that need to be updated before running on a new machine.
 
 ---
 
 ## Suggested Analysis Order
 
-For a new user trying to reproduce or understand the project, use this order:
+The analysis order depends on what someone is trying to reproduce, but this is the order I would recommend for understanding the project.
 
-### 1. Read the root README
+### 1. Start with the dissertation-level overview
 
-Start here to understand the full dissertation structure and repository map.
+Read:
+
+```text
+README.md
+final-documents/Dissertation- Fahim Mobin.pdf
+final-documents/PhD Defense Final.pptx
+```
+
+This gives the scientific motivation, experimental design, and high-level conclusions.
 
 ### 2. Review Aim 1
 
-Open:
+Start with:
 
 ```text
 Aim1/README.md
 Aim1/Main Function Flow and Pressure.ipynb
+Aim1/Random Forest and Decision Tree Code/RF Data Generator.ipynb
+Aim1/Random Forest and Decision Tree Code/RF Code.ipynb
 Aim1/Multi-head CNN Code/Multi-head 1D CNN model.ipynb
 ```
 
-Use Aim 1 to understand waveform processing, feature engineering, and AI classification.
+This shows how the waveform-based AI side of the project was built.
 
-### 3. Review Aim 3 PV loop analysis
+### 3. Review Aim 2
 
-Open:
+Start with:
+
+```text
+Aim2/PV Loop Analysis Methodology.pptx
+Aim2/Codes/PV Loop Code without ESPVR.ipynb
+Aim2/Codes/PV Loop Code with ESPVR.ipynb
+Aim2/Ensemble Comparison.ipynb
+Aim2/Statistics/PV Loop Statistics-Raw Data.xlsx
+```
+
+This shows how the PV loop data were processed and how the statistical analysis was organized.
+
+### 4. Review Aim 3
+
+Start with:
 
 ```text
 Aim3/PV Loop Data-ANALYZER.ipynb
-Aim3/Individual ERNE Ensemble Averaged PV Loops.xlsx
-Aim3/T30 Ensemble Averaged PV Loops.xlsx
-```
-
-Use this section to understand PV loop processing and Aim 3 cardiac outputs.
-
-### 4. Review Aim 3 plotting
-
-Open:
-
-```text
 Aim3/Paper Plotting/Plotting Code.ipynb
+Aim3/Stats/Step 3 Actual Stats/README.md
+Aim3/Stats/Step 3 Actual Stats/PV_02.18.26.R
+Aim3/Stats/Step 3 Actual Stats/Flow_Pressure_06.13.25.R
+Aim3/Stats/Step 3 Actual Stats/CHEM8_CG4_02.19.26.R
+Aim3/Stats/Step 3 Actual Stats/TEG Stats_08.27.25.R
+Aim3/Stats/Step 3 Actual Stats/Fluids_Drugs_08.27.25.R
 ```
 
-Then inspect generated figures in:
-
-```text
-Aim3/Paper Plotting/Hemodynamics/
-Aim3/Paper Plotting/Hemorrhage Comparison/
-Aim3/Paper Plotting/Pressure-Volume/
-Aim3/Paper Plotting/TEG/
-Aim3/Paper Plotting/CG4 and CHEM8 Plots/
-Aim3/Paper3-RawFigures/
-```
-
-### 5. Review Aim 3 statistics
-
-Open:
-
-```text
-Aim3/Stats/README.md
-Aim3/Stats/Step 3 Actual Stats/
-```
-
-Start with the R scripts that correspond to the domain being analyzed:
-
-```text
-PV_02.18.26.R
-TEG Stats_08.27.25.R
-Fluids_Drugs_08.27.25.R
-CG4_CHEM8_Stats_08.13.25.R
-```
-
-### 6. Review supporting folders
-
-Use these for additional processing context:
-
-```text
-Fluids and Pressors/
-TEG/
-```
-
-### 7. Add Aim 2
-
-Once Aim 2 raw Excel files and code are uploaded, add them under the recommended `Aim2/` structure and update this README with exact filenames, run order, and outputs.
+This gives the most direct path to the Aim 3 outputs and final statistics.
 
 ---
 
 ## File Organization Notes
 
-### Files to Keep in the Repository
+A few notes will make the repository easier to work with:
 
-Keep:
+1. **Temporary system files are present.**  
+   Files like `.DS_Store`, `.ipynb_checkpoints`, and `~$...xlsx` are generated by macOS, Jupyter, or Microsoft Office. They are not scientific source files and can generally be ignored.
 
-- README files
-- analysis notebooks
-- R scripts
-- cleaned or de-identified processed datasets
-- final figure panels
-- statistical summary tables
-- small metadata files needed to reproduce analyses
+2. **Some archive folders are historical.**  
+   Files or folders named `archive`, `graveyard`, `old`, or `sandbox` usually contain earlier versions of code or intermediate experiments. They may still be useful for tracing development, but they are not usually the first place to start.
 
-### Files to Consider Excluding
+3. **Aim 2 has both non-caval and caval outputs.**  
+   This distinction matters. Non-caval outputs are mainly standard PV loop parameters. Caval occlusion outputs are where ESPVR and EDPVR-related files live.
 
-Consider excluding or moving to archive:
+4. **Aim 3 has several duplicate-looking files because the workflow moved through stages.**  
+   For Aim 3 statistics, the cleanest place to start is usually `Aim3/Stats/Step 3 Actual Stats/` rather than the older sandbox or graveyard folders.
 
-- `.DS_Store`
-- `~$` Excel temporary files
-- `.ipynb_checkpoints/`
-- `.RData` if it is not needed for reproducibility
-- old archive zip files unless they are intentionally preserved
-- raw files that cannot be shared publicly
-- large binary outputs that can be regenerated
+5. **Some filenames contain spaces.**  
+   This is fine for normal navigation, but if running scripts from a terminal, wrap file paths in quotes.
 
-Suggested `.gitignore` additions:
-
-```gitignore
-.DS_Store
-.ipynb_checkpoints/
-~$*.xlsx
-.RData
-*.zip
-__pycache__/
-.venv/
-.env
-```
-
-If zip files are important for reproducibility, do not globally ignore `*.zip`; instead, move them to a clearly labeled `archive/` folder and document their purpose.
+6. **Some notebooks may need path edits.**  
+   Several notebooks were likely written on a local machine and may contain absolute or relative paths that need to be adjusted before running elsewhere.
 
 ---
 
 ## Data and Reproducibility Notes
 
-This repository may include sensitive, unpublished, or large experimental data files. Before making the repository public, confirm that all uploaded datasets are approved for sharing.
+This repository is designed as a research archive and navigation point, not a fully packaged Python library. The main reproducibility path is through the notebooks and scripts.
 
-Recommended reproducibility practices:
+General reproducibility approach:
 
-1. Add a local README inside each major aim folder.
-2. Add a short header to each notebook explaining:
-   - input files required
-   - output files generated
-   - expected runtime
-   - whether the notebook is exploratory or final
-3. Separate raw, processed, and figure outputs.
-4. Use consistent subject IDs and treatment labels across all Excel files.
-5. Avoid relying on hard-coded absolute file paths.
-6. Keep final manuscript figures separate from exploratory figures.
-7. Document excluded animals, excluded time points, and cleaning rules.
+1. Start from the raw or cleaned Excel files in the relevant aim folder.
+2. Run the processing notebook for that aim.
+3. Check the generated processed Excel outputs.
+4. Run the statistics script or JMP/Stata workflow.
+5. Compare the generated figures or tables with the manuscript/dissertation outputs.
 
----
-
-## Suggested Naming Conventions Going Forward
-
-For Aim 2 and future updates, use consistent names such as:
-
-```text
-Aim2/raw_data/Subject_<ID>_RawPV.xlsx
-Aim2/processed_data/Subject_<ID>_CleanedPV.xlsx
-Aim2/processed_data/Aim2_BeatToBeat_PV_Parameters.xlsx
-Aim2/processed_data/Aim2_Ensemble_Averaged_PV_Loops.xlsx
-Aim2/stats/Aim2_Stats.R
-Aim2/figures/Fig1_PV_Loop_Example.png
-Aim2/figures/Fig2_Load_Dependent_Parameters.png
-Aim2/figures/Fig3_ESPVR_EDPVR.png
-```
-
-This will make the repository easier to understand and easier to cite in a dissertation, manuscript, or portfolio.
+Because these datasets come from large-animal experiments, users should also preserve subject IDs, treatment groups, time points, and any exclusion notes when modifying or rerunning analyses.
 
 ---
 
@@ -905,8 +1112,12 @@ Advisor:
 
 **Dr. Ellie Rahbar**
 
+Institutional context:
+
+Virginia Tech – Wake Forest University School of Biomedical Engineering and Sciences / Wake Forest School of Medicine research environment.
+
 ---
 
 ## Contact
 
-For questions about the repository, analysis workflow, or dissertation code organization, contact the repository owner / dissertation author.
+For questions about the repository, dissertation work, or analysis files, contact the repository owner / dissertation author.
