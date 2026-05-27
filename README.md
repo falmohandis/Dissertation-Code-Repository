@@ -6,7 +6,7 @@ The main idea behind this project is pretty simple: hemorrhagic shock is physiol
 
 This README is meant to be a navigation guide. It does not replace the papers, dissertation, or analysis notebooks. It is mainly here so that someone opening the repository can understand what each folder is for, where the major files live, and how the different pieces of the project fit together.
 
-NOTE: I generated this using AI to simplify readability. Feel free to [email me](fahim.mobin@gmail.com) to follow up if something is not making sense.
+NOTE: I generated this using AI to simplify readability. Feel free to [email me](mailto:fahim.mobin@gmail.com) to follow up if something is not making sense.
 
 ---
 
