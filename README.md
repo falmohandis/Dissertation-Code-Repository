@@ -1106,7 +1106,7 @@ Dissertation title:
 
 Author:
 
-**Fahim Usshihab Mobin, MS**
+**Fahim Usshihab Mobin, PhD**
 
 Advisor:
 
